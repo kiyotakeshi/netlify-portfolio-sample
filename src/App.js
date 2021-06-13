@@ -14,7 +14,7 @@ const App = () => {
     return (
         <>
             <Layout>
-                <p>Hello React</p>
+                <p>This is the children</p>
             </Layout>
         </>
     );
