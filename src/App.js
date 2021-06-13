@@ -1,6 +1,7 @@
-import styles from './App.module.css';
-import Hello from './Hello';
+import * as styles from './App.module.css';
 import Layout from './Layout';
+import PostItem from './PostItem';
+import WorkItem from './WorkItem';
 
 // CSS Modules により hoge.module.css ファイルを JS から呼び出し、
 // 各クラスごとに動的に生成されたクラス名を付与してくれる
@@ -10,11 +11,25 @@ import Layout from './Layout';
 // console.log(styles);
 // {container: "App_container__1MQN3", message: "App_message__2vrzR"}
 
-const App = () => {
+const App = (props) => {
     return (
         <>
             <Layout>
-                <p>This is the children</p>
+                <h2 className={styles.heading}>About</h2>
+                <p className={styles.profile}>
+                    Gatsby.js がどのようなものか学習し始めたところです。
+                </p>
+                <h2 className={styles.heading}>Posts</h2>
+                {props.posts.map((post) => {
+                    return <PostItem post={post} key={post.title} />;
+                })}
+                <h2 className={styles.heading}>Works</h2>
+                <div className={styles.workItems}>
+                    {props.works.map((work) => {
+                        return <WorkItem work={work} key={work.name} />;
+                    })}
+                </div>
+                <div className={styles.workItems}></div>
             </Layout>
         </>
     );
