@@ -17,8 +17,10 @@ const Header = () => {
             <div className={styles.social}>
                 <a
                     href="https://github.com/kiyotakeshi"
-                    target="_blank"
-                    rel="noopener"
+                    target="_blank" // 別 tab で開かせる
+                    // Using target="_blank" without rel="noreferrer" is a security
+                    // https://blog.ojisan.io/noreferrer-noopener
+                    rel="noreferrer"
                 >
                     <img
                         width={32}
